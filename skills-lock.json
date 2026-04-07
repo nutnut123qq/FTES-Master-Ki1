@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "nestjs-best-practices": {
+      "source": "nutnut123qq/agent-nestjs-skills",
+      "sourceType": "github",
+      "computedHash": "82d7ba96b692bdcb53aadc31ffc8c6112356b8dd53aa4fb467a53ada7e47d4a2"
+    }
+  }
+}
