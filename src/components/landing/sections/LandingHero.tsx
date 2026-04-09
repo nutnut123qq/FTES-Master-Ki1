@@ -12,7 +12,7 @@ export function LandingHero() {
         <div className="z-10">
           <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-st-primary-fixed px-4 py-2 text-sm font-bold text-st-on-primary-fixed">
             <MaterialIcon name="auto_awesome" className="!text-sm" filled />
-            Mùa học mới 2024
+            Mùa học mới 2026
           </div>
           <h1 className="font-[family-name:var(--font-heading),ui-sans-serif] mb-6 text-5xl leading-tight font-black text-st-on-background lg:text-7xl">
             Khóa học miễn phí Master Kì 1 cho <span className="text-st-primary">PRF192</span> và{" "}

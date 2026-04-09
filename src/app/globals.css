@@ -6,25 +6,25 @@
 
 :root {
   color-scheme: light;
-  /* FTES / Stitch "Academic Aurora" — light landing */
-  --background: oklch(0.97 0.012 264);
-  --foreground: oklch(0.21 0.045 264);
+  /* FTES / Stitch theme remapped to #3F51B5 + white */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.33 0.14 278);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.21 0.045 264);
+  --card-foreground: oklch(0.33 0.14 278);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.21 0.045 264);
-  --primary: oklch(0.5 0.19 264);
+  --popover-foreground: oklch(0.33 0.14 278);
+  --primary: oklch(0.53 0.16 278);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.93 0.04 264);
-  --secondary-foreground: oklch(0.5 0.19 264);
-  --muted: oklch(0.94 0.02 264);
-  --muted-foreground: oklch(0.45 0.03 264);
-  --accent: oklch(0.52 0.27 293);
+  --secondary: oklch(0.47 0.16 278);
+  --secondary-foreground: oklch(0.99 0 0);
+  --muted: oklch(0.96 0.03 279);
+  --muted-foreground: oklch(0.5 0.08 278);
+  --accent: oklch(0.62 0.12 278);
   --accent-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.88 0.02 264 / 0.35);
-  --input: oklch(0.92 0.02 264);
-  --ring: oklch(0.5 0.19 264 / 0.35);
+  --border: oklch(0.86 0.05 279 / 0.45);
+  --input: oklch(0.96 0.03 279);
+  --ring: oklch(0.53 0.16 278 / 0.35);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -55,29 +55,29 @@ body {
   /* Next/font sets --font-heading and --font-sans on <html> */
   --font-heading: var(--font-heading);
   --font-sans: var(--font-sans);
-  /* Stitch export palette (named like source HTML tailwind extend) */
-  --color-st-surface: #f8f9ff;
-  --color-st-on-background: #0b1c30;
-  --color-st-on-surface: #0b1c30;
-  --color-st-on-surface-variant: #414755;
-  --color-st-primary: #0057c2;
-  --color-st-secondary: #4b41e1;
-  --color-st-tertiary: #712ae2;
-  --color-st-primary-container: #006ef2;
-  --color-st-on-primary-container: #fefcff;
-  --color-st-primary-fixed: #d9e2ff;
-  --color-st-on-primary-fixed: #001a43;
-  --color-st-secondary-container: #645efb;
-  --color-st-on-secondary-container: #fffbff;
-  --color-st-tertiary-container: #8a4cfc;
-  --color-st-secondary-fixed: #e2dfff;
-  --color-st-tertiary-fixed: #eaddff;
-  --color-st-surface-container: #e5eeff;
-  --color-st-surface-container-low: #eff4ff;
+  /* Stitch-compatible tokens remapped to Indigo palette */
+  --color-st-surface: #ffffff;
+  --color-st-on-background: #1a237e;
+  --color-st-on-surface: #1a237e;
+  --color-st-on-surface-variant: #4e5aa7;
+  --color-st-primary: #3f51b5;
+  --color-st-secondary: #303f9f;
+  --color-st-tertiary: #5c6bc0;
+  --color-st-primary-container: #5c6bc0;
+  --color-st-on-primary-container: #ffffff;
+  --color-st-primary-fixed: #eef1ff;
+  --color-st-on-primary-fixed: #1a237e;
+  --color-st-secondary-container: #3f51b5;
+  --color-st-on-secondary-container: #ffffff;
+  --color-st-tertiary-container: #7986cb;
+  --color-st-secondary-fixed: #e8eaf6;
+  --color-st-tertiary-fixed: #f0f2ff;
+  --color-st-surface-container: #eef1ff;
+  --color-st-surface-container-low: #f6f7ff;
   --color-st-surface-container-lowest: #ffffff;
-  --color-st-surface-container-high: #dce9ff;
-  --color-st-surface-container-highest: #d3e4fe;
-  --color-st-outline-variant: #c1c6d7;
+  --color-st-surface-container-high: #e8ebff;
+  --color-st-surface-container-highest: #dde2ff;
+  --color-st-outline-variant: #c5cae9;
   --color-st-error-container: #ffdad6;
   --color-st-on-error-container: #93000a;
   --color-st-white: #ffffff;
@@ -189,8 +189,8 @@ body {
 
 .stitch-aurora-bg {
   background:
-    radial-gradient(circle at 0% 0%, #e5eeff 0%, transparent 50%),
-    radial-gradient(circle at 100% 100%, #eaddff 0%, transparent 50%);
+    radial-gradient(circle at 0% 0%, #eef1ff 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, #e8eaf6 0%, transparent 50%);
 }
 
 .stitch-glass-header {
@@ -200,5 +200,5 @@ body {
 }
 
 .stitch-action-gradient {
-  background: linear-gradient(135deg, #0057c2 0%, #4b41e1 100%);
+  background: linear-gradient(135deg, #3f51b5 0%, #303f9f 100%);
 }

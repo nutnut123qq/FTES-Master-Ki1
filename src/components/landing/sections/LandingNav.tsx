@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const nav = [
   { href: "#intro", label: "Giới thiệu", active: true },
@@ -15,9 +16,17 @@ export function LandingNav() {
         <div className="flex items-center gap-12">
           <Link
             href="#"
-            className="font-[family-name:var(--font-heading),ui-sans-serif] bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-2xl font-black tracking-tight text-transparent"
+            className="flex items-center"
+            aria-label="FTES Master"
           >
-            FTES Master
+            <Image
+              src="/images/Ftes_logo.jpg"
+              alt="FTES Master"
+              width={151}
+              height={32}
+              className="h-8 w-auto"
+              priority
+            />
           </Link>
           <nav className="hidden items-center gap-8 md:flex" aria-label="Điều hướng">
             {nav.map((item) => (
@@ -26,8 +35,8 @@ export function LandingNav() {
                 href={item.href}
                 className={
                   item.active
-                    ? "border-b-2 border-blue-700 py-1 font-bold text-blue-700"
-                    : "py-1 text-slate-600 transition-colors hover:text-blue-600"
+                    ? "border-b-2 border-st-primary py-1 font-bold text-st-primary"
+                    : "py-1 text-st-on-surface-variant transition-colors hover:text-st-secondary"
                 }
               >
                 {item.label}
@@ -38,7 +47,7 @@ export function LandingNav() {
         <div className="flex items-center gap-4">
           <a
             href="#ftes"
-            className="hidden font-medium text-slate-600 transition-colors hover:text-blue-600 sm:block"
+            className="hidden font-medium text-st-on-surface-variant transition-colors hover:text-st-secondary sm:block"
           >
             Về ftes.vn
           </a>

@@ -66,27 +66,27 @@ export function LandingBenefits() {
             </p>
           </div>
 
-          <div className="flex flex-col items-center gap-8 rounded-[2rem] bg-st-tertiary-container p-10 text-white shadow-lg md:col-span-2 md:flex-row">
-            <div className="flex-1">
-              <h3 className="font-[family-name:var(--font-heading),ui-sans-serif] mb-4 text-2xl font-bold">
-                Kết nối hệ sinh thái
-              </h3>
-              <p className="mb-6 leading-relaxed text-white/80">
-                Tiếp cận cộng đồng FTES cùng hệ thống AI hỗ trợ học tập độc quyền cho sinh viên Việt
-                Nam.
-              </p>
-              <Image
-                src={ecosystemImg}
-                alt="FTES Ecosystem"
-                width={800}
-                height={420}
-                className="w-full rounded-lg border border-white/20"
-                sizes="(min-width: 768px) 50vw, 100vw"
-              />
+          <div className="relative overflow-hidden rounded-[2rem] bg-st-tertiary-container p-10 text-white shadow-lg md:col-span-2">
+            <div className="mb-8 flex items-start justify-between gap-6">
+              <div className="max-w-2xl">
+                <h3 className="font-[family-name:var(--font-heading),ui-sans-serif] mb-4 text-2xl font-bold">
+                  Kết nối hệ sinh thái
+                </h3>
+                <p className="leading-relaxed text-white/80">
+                  Tiếp cận cộng đồng FTES cùng hệ thống AI hỗ trợ học tập độc quyền cho sinh viên Việt
+                  Nam.
+                </p>
+              </div>
+              <MaterialIcon name="hub" className="hidden !text-7xl opacity-20 md:block" />
             </div>
-            <div className="flex w-full items-center justify-center md:w-1/3">
-              <MaterialIcon name="hub" className="!text-[100px] opacity-20" />
-            </div>
+            <Image
+              src={ecosystemImg}
+              alt="FTES Ecosystem"
+              width={800}
+              height={420}
+              className="w-full rounded-lg border border-white/20"
+              sizes="(min-width: 768px) 66vw, 100vw"
+            />
           </div>
         </div>
       </div>
