@@ -22,9 +22,9 @@ export function LandingNav() {
             <Image
               src="/images/Ftes_logo.jpg"
               alt="FTES Master"
-              width={151}
-              height={32}
-              className="h-8 w-auto"
+              width={208}
+              height={44}
+              className="h-11 w-auto"
               priority
             />
           </Link>
