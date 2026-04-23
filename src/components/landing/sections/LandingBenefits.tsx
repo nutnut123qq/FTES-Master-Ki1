@@ -107,7 +107,7 @@ function SectionBlock({
 
 export function LandingBenefits() {
   return (
-    <section className="bg-st-surface-container-low px-8 py-24">
+    <section className="bg-st-surface-container-low px-8 py-24" id="content">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 text-center">
           <h2 className="font-[family-name:var(--font-heading),ui-sans-serif] mb-4 text-4xl font-black text-st-on-background">

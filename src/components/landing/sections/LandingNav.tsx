@@ -6,7 +6,9 @@ import Image from "next/image";
 
 const navItems = [
   { href: "#intro", label: "Giới thiệu" },
-  { href: "#schedule", label: "Lịch học" },
+  { href: "#content", label: "Nội dung" },
+  { href: "#schedule", label: "Chi tiết" },
+  { href: "#mentor", label: "Mentor" },
   { href: "#register", label: "Đăng ký" },
   { href: "#faq", label: "FAQ" },
   { href: "#ftes", label: "FTES" },
@@ -86,12 +88,7 @@ export function LandingNav() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <a
-            href="#ftes"
-            className="hidden font-medium text-st-on-surface-variant transition-colors hover:text-st-secondary sm:block"
-          >
-            Về ftes.vn
-          </a>
+
           <a
             href="#register"
             className="stitch-action-gradient rounded-full px-6 py-2.5 font-bold text-white shadow-lg shadow-st-primary/20 transition-transform duration-200 hover:scale-105"

@@ -26,8 +26,8 @@ const scheduleItems = [
 export function LandingSchedule() {
   return (
     <section className="bg-st-surface px-8 py-24" id="schedule">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-16 md:flex-row">
-        <div className="flex-1">
+      <div className="mx-auto max-w-7xl text-center">
+        <div className="mx-auto max-w-2xl">
           <h2 className="font-[family-name:var(--font-heading),ui-sans-serif] mb-8 text-4xl font-black text-st-on-background">
             Thông tin chi tiết khóa học
           </h2>
@@ -37,42 +37,14 @@ export function LandingSchedule() {
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-st-surface-container-high">
                   <MaterialIcon name={row.icon} className="!text-xl text-st-primary" />
                 </div>
-                <div>
+                <div className="text-left">
                   <strong className="block text-lg text-st-on-background">{row.title}</strong>
                   <span className="text-st-on-surface-variant">{row.text}</span>
                 </div>
               </li>
             ))}
           </ul>
-          <a
-            href="#register"
-            className="stitch-action-gradient mt-10 inline-block rounded-full px-8 py-4 font-bold text-white shadow-lg"
-          >
-            Đăng ký ngay để nhận lịch
-          </a>
-        </div>
-        <div className="w-full flex-1">
-          <div className="rounded-[2rem] border border-st-outline-variant/15 bg-st-surface-container-lowest p-8 shadow-sm">
-            <div className="mb-8 flex items-center justify-between">
-              <h4 className="text-xl font-bold text-st-on-background">Lịch khai giảng dự kiến</h4>
-              <span className="rounded-full bg-st-secondary-container px-3 py-1 text-xs font-bold text-st-on-secondary-container uppercase">
-                Coming Soon
-              </span>
-            </div>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between rounded-xl bg-st-surface-container-low p-4">
-                <span className="text-st-on-background">Khai giảng PRF192</span>
-                <span className="font-bold text-st-primary">Thứ 2, Tuần sau</span>
-              </div>
-              <div className="flex items-center justify-between rounded-xl bg-st-surface-container-low p-4">
-                <span className="text-st-on-background">Khai giảng MAE101</span>
-                <span className="font-bold text-st-secondary">Thứ 3, Tuần sau</span>
-              </div>
-              <p className="pt-4 text-center text-sm text-st-on-surface-variant italic">
-                *Lịch chi tiết sẽ được gửi qua Email sau khi đăng ký thành công.
-              </p>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>

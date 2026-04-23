@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { MaterialIcon } from "./MaterialIcon";
 
 const feedbacks = [
@@ -25,7 +27,7 @@ const feedbacks = [
 
 export function LandingMentor() {
   return (
-    <section className="overflow-hidden bg-st-surface-container-low px-8 py-24">
+    <section className="overflow-hidden bg-st-surface-container-low px-8 py-24" id="mentor">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 text-center">
           <h2 className="font-[family-name:var(--font-heading),ui-sans-serif] mb-4 text-4xl font-black text-st-on-background">
@@ -36,7 +38,13 @@ export function LandingMentor() {
           {/* Mentor Phan Thanh Huy */}
           <div className="rounded-[2rem] border border-st-outline-variant/15 bg-st-surface-container-lowest p-8 text-center shadow-sm lg:col-span-4">
             <div className="mx-auto mb-6 flex h-32 w-32 items-center justify-center rounded-full border-4 border-st-secondary/20 bg-st-secondary-container">
-              <MaterialIcon name="person" className="!text-5xl text-st-on-secondary-container" />
+              <Image
+                src="/images/mentor.jpg"
+                alt="Phan Thanh Huy"
+                width={128}
+                height={128}
+                className="h-full w-full rounded-full object-cover"
+              />
             </div>
             <h3 className="font-[family-name:var(--font-heading),ui-sans-serif] mb-2 text-2xl font-bold text-st-on-background">
               Phan Thanh Huy
