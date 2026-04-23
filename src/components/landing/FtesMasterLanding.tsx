@@ -1,7 +1,6 @@
 import {
   LandingAudience,
   LandingBenefits,
-  LandingCurriculum,
   LandingFaq,
   LandingFooter,
   LandingFtes,
@@ -20,7 +19,6 @@ export function FtesMasterLanding() {
       <main className="pt-24">
         <LandingHero />
         <LandingBenefits />
-        <LandingCurriculum />
         <LandingAudience />
         <LandingSchedule />
         <LandingMentor />
