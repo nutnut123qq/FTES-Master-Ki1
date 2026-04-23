@@ -1,15 +1,54 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const nav = [
-  { href: "#intro", label: "Giới thiệu", active: true },
-  { href: "#curriculum", label: "Nội dung" },
+const navItems = [
+  { href: "#intro", label: "Giới thiệu" },
   { href: "#schedule", label: "Lịch học" },
+  { href: "#register", label: "Đăng ký" },
   { href: "#faq", label: "FAQ" },
-  { href: "#ftes", label: "FTES" }
+  { href: "#ftes", label: "FTES" },
 ];
 
 export function LandingNav() {
+  const [active, setActive] = useState("intro");
+
+  useEffect(() => {
+    const sectionIds = navItems.map((item) => item.href.slice(1));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-80px 0px -60% 0px",
+        threshold: 0,
+      }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleClick = (href: string) => {
+    setActive(href.slice(1));
+  };
+
+  const activeClass =
+    "border-b-2 border-st-primary py-1 font-bold text-st-primary";
+  const defaultClass =
+    "py-1 text-st-on-surface-variant transition-colors hover:text-st-secondary";
+
   return (
     <header className="stitch-glass-header fixed top-0 z-50 w-full border-b border-st-outline-variant/10 shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-4">
@@ -28,15 +67,17 @@ export function LandingNav() {
               priority
             />
           </Link>
-          <nav className="hidden items-center gap-8 md:flex" aria-label="Điều hướng">
-            {nav.map((item) => (
+          <nav
+            className="hidden items-center gap-8 md:flex"
+            aria-label="Điều hướng"
+          >
+            {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
+                onClick={() => handleClick(item.href)}
                 className={
-                  item.active
-                    ? "border-b-2 border-st-primary py-1 font-bold text-st-primary"
-                    : "py-1 text-st-on-surface-variant transition-colors hover:text-st-secondary"
+                  active === item.href.slice(1) ? activeClass : defaultClass
                 }
               >
                 {item.label}
