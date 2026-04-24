@@ -9,7 +9,6 @@ const navItems = [
   { href: "#content", label: "Nội dung" },
   { href: "#schedule", label: "Chi tiết" },
   { href: "#mentor", label: "Mentor" },
-  { href: "#register", label: "Đăng ký" },
   { href: "#faq", label: "FAQ" },
   { href: "#ftes", label: "FTES" },
 ];
@@ -18,28 +17,21 @@ export function LandingNav() {
   const [active, setActive] = useState("intro");
 
   useEffect(() => {
-    const sectionIds = navItems.map((item) => item.href.slice(1));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
-        });
-      },
-      {
-        rootMargin: "-80px 0px -60% 0px",
-        threshold: 0,
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + 120;
+      let current = "intro";
+      for (const item of navItems) {
+        const el = document.getElementById(item.href.slice(1));
+        if (el && el.offsetTop <= scrollPos) {
+          current = item.href.slice(1);
+        }
       }
-    );
+      setActive(current);
+    };
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleClick = (href: string) => {
@@ -90,7 +82,9 @@ export function LandingNav() {
         <div className="flex items-center gap-4">
 
           <a
-            href="#register"
+            href="https://www.facebook.com/ftes.edu"
+            target="_blank"
+            rel="noopener noreferrer"
             className="stitch-action-gradient rounded-full px-6 py-2.5 font-bold text-white shadow-lg shadow-st-primary/20 transition-transform duration-200 hover:scale-105"
           >
             Đăng ký miễn phí

@@ -7,6 +7,5 @@ export { LandingFtes } from "./LandingFtes";
 export { LandingHero } from "./LandingHero";
 export { LandingMentor } from "./LandingMentor";
 export { LandingNav } from "./LandingNav";
-export { LandingRegister } from "./LandingRegister";
 export { LandingSchedule } from "./LandingSchedule";
 export { MaterialIcon } from "./MaterialIcon";

@@ -1,29 +1,87 @@
+"use client";
+
 import Image from "next/image";
+import { useState, useEffect, useCallback } from "react";
 
 import { MaterialIcon } from "./MaterialIcon";
 
-const feedbacks = [
-  {
-    code: "PRF192",
-    name: "Feedback PRF192",
-    desc: "Xem nhận xét và kết quả học tập của học viên môn Ngôn ngữ lập trình C.",
-    url: "https://drive.google.com/drive/folders/12z_a5_sT8TGf4oLylaMJTBFjA0Mq85Rv?fbclid=IwY2xjawOvUoJleHRuA2FlbQIxMABicmlkETFrSzA4bGd5eDBzQm90eUpTc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHnTDydsbLN4CO1NBCyV4c5prOGWQeHUrSCpbgdyOllQWTUn_gh7TrhQtjcYM_aem_B7AFu9m-JVKN1fRKCGZxVQ",
-    icon: "folder_open" as const,
-    color: "bg-orange-500",
-    tag: "PRF192",
-    tagColor: "bg-orange-500/10 text-orange-600",
-  },
-  {
-    code: "MAE101",
-    name: "Feedback MAE101",
-    desc: "Xem nhận xét và kết quả học tập của học viên môn Toán cao cấp cho Kỹ sư.",
-    url: "https://drive.google.com/drive/folders/1THJcUr4ONP09WaN2YM37nkoLfY72PuQZ?fbclid=IwY2xjawOvUoJleHRuA2FlbQIxMABicmlkETFrSzA4bGd5eDBzQm90eUpTc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHnTDydsbLN4CO1NBCyV4c5prOGWQeHUrSCpbgdyOllQWTUn_gh7TrhQtjcYM_aem_B7AFu9m-JVKN1fRKCGZxVQ",
-    icon: "folder_open" as const,
-    color: "bg-violet-500",
-    tag: "MAE101",
-    tagColor: "bg-violet-500/10 text-violet-600",
-  },
+const prfImages = [
+  "/images/prf192-1.jpg",
+  "/images/prf192-2.jpg",
+  "/images/prf192-3.jpg",
+  "/images/prf192-4.jpg",
+  "/images/prf192-5.jpg",
+  "/images/prf192-6.jpg",
+  "/images/prf192-7.jpg",
 ];
+
+const maeImages = [
+  "/images/mae-1.jpg",
+  "/images/mae-2.jpg",
+  "/images/mae-3.jpg",
+  "/images/mae-4.jpg",
+  "/images/mae-5.jpg",
+  "/images/mae-6.jpg",
+  "/images/mae-7.jpg",
+];
+
+function ImageCarousel({ images, altPrefix, label }: { images: string[]; altPrefix: string; label?: string }) {
+  const [index, setIndex] = useState(0);
+
+  const next = useCallback(() => {
+    setIndex((prev) => (prev + 1) % images.length);
+  }, [images.length]);
+
+  const prev = useCallback(() => {
+    setIndex((prev) => (prev - 1 + images.length) % images.length);
+  }, [images.length]);
+
+  useEffect(() => {
+    const timer = setInterval(next, 2000);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  return (
+    <div className="group relative w-full overflow-hidden rounded-[2rem] border border-st-outline-variant/15 bg-st-surface-container-lowest shadow-sm aspect-[3/4]">
+      {label && (
+        <div className="absolute left-4 top-4 z-10 rounded-full bg-black/40 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm">
+          {label}
+        </div>
+      )}
+      <div
+        className="flex h-full transition-transform duration-500 ease-in-out"
+        style={{ transform: `translateX(-${index * 100}%)` }}
+      >
+        {images.map((src, i) => (
+          <div key={src} className="relative h-full w-full flex-shrink-0">
+            <Image
+              src={src}
+              alt={`${altPrefix} ${i + 1}`}
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        ))}
+      </div>
+
+      <button
+        onClick={prev}
+        className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white opacity-0 backdrop-blur-sm transition hover:bg-black/50 group-hover:opacity-100"
+        aria-label="Previous"
+      >
+        <MaterialIcon name="chevron_left" className="!text-2xl" />
+      </button>
+      <button
+        onClick={next}
+        className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white opacity-0 backdrop-blur-sm transition hover:bg-black/50 group-hover:opacity-100"
+        aria-label="Next"
+      >
+        <MaterialIcon name="chevron_right" className="!text-2xl" />
+      </button>
+    </div>
+  );
+}
 
 export function LandingMentor() {
   return (
@@ -31,7 +89,7 @@ export function LandingMentor() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 text-center">
           <h2 className="font-[family-name:var(--font-heading),ui-sans-serif] mb-4 text-4xl font-black text-st-on-background">
-            Gặp gỡ Mentor & Học viên
+            Mentor & Feedback học viên
           </h2>
         </div>
         <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
@@ -82,41 +140,10 @@ export function LandingMentor() {
             </div>
           </div>
 
-          {/* Feedback Links */}
+          {/* Feedback Images */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:col-span-8">
-            {feedbacks.map((f) => (
-              <a
-                key={f.code}
-                href={f.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col justify-between rounded-[2rem] border border-st-outline-variant/15 bg-st-surface-container-lowest p-8 shadow-sm transition-colors hover:bg-st-surface-container-high"
-              >
-                <div>
-                  <div className="mb-4 flex items-center justify-between">
-                    <div className={`flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-md ${f.color}`}>
-                      <MaterialIcon name={f.icon} className="!text-2xl" />
-                    </div>
-                    <span className={`rounded-full px-3 py-1 text-xs font-bold ${f.tagColor}`}>
-                      {f.tag}
-                    </span>
-                  </div>
-                  <h4 className="font-[family-name:var(--font-heading),ui-sans-serif] mb-2 text-xl font-bold text-st-on-background">
-                    {f.name}
-                  </h4>
-                  <p className="text-sm leading-relaxed text-st-on-surface-variant">
-                    {f.desc}
-                  </p>
-                </div>
-                <div className="mt-6 flex items-center gap-2 font-bold text-st-primary">
-                  <span>Mở Google Drive</span>
-                  <MaterialIcon
-                    name="open_in_new"
-                    className="!text-lg transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
-                </div>
-              </a>
-            ))}
+            <ImageCarousel images={prfImages} altPrefix="PRF192" label="PRF192" />
+            <ImageCarousel images={maeImages} altPrefix="MAE101" label="MAE101" />
           </div>
         </div>
       </div>

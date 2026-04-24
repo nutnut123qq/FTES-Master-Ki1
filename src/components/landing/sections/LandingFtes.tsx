@@ -27,7 +27,9 @@ export function LandingFtes() {
               Khám phá FTES
             </a>
             <a
-              href="#register"
+              href="https://www.facebook.com/ftes.edu"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full border-2 border-white/30 px-8 py-3 font-bold text-white transition-colors hover:bg-white/10"
             >
               Đăng ký miễn phí

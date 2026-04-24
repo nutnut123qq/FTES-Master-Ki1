@@ -7,7 +7,6 @@ import {
   LandingHero,
   LandingMentor,
   LandingNav,
-  LandingRegister,
   LandingSchedule
 } from "./sections";
 
@@ -22,7 +21,6 @@ export function FtesMasterLanding() {
         <LandingAudience />
         <LandingSchedule />
         <LandingMentor />
-        <LandingRegister />
         <LandingFaq />
         <LandingFtes />
       </main>
